@@ -73,9 +73,9 @@ class RadioTest {
     @Test
     void shouldTurnUpVolumeOverMaximum() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(100);
         radio.turnUpVolume();
-        assertEquals(10, radio.getCurrentVolume());
+        assertEquals(100, radio.getCurrentVolume());
     }
 
     @Test
