@@ -16,7 +16,7 @@ class RadioTest {
     void shouldSwitchStationByManuallyWithWrongNumber() {
         Radio radio = new Radio();
         radio.switchStationByManually(0);
-        assertEquals(7, radio.switchStationByManually(0));
+        assertEquals(0, radio.switchStationByManually(0));
     }
 
     @Test
