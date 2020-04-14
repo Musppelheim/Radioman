@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-
 public class Radio {
 
     private int currentVolume = 8;
@@ -16,10 +15,15 @@ public class Radio {
     private int currentRadioStation = 7;
     private int maxRadioStation = 9;
     private int minRadioStation = 0;
-    private final static int MAX_RADIO_STATION = 9;
+
+    public Radio(int maxRadioStation, int currentRadioStation, int currentVolume) {
+        this.maxRadioStation = maxRadioStation;
+        this.currentRadioStation = currentRadioStation;
+        this.currentVolume = currentVolume;
+    }
 
     public int switchStationByManually(int inputStation) {
-        if (inputStation < 9 && inputStation > 0) {
+        if (inputStation <= 9 && inputStation >= 0) {
             currentRadioStation = inputStation;
         }
         return currentRadioStation;
@@ -28,7 +32,6 @@ public class Radio {
     public void pressNextStation() {
         if (currentRadioStation == maxRadioStation) {
             this.currentRadioStation = minRadioStation;
-            return;
         } else {
             currentRadioStation++;
         }
@@ -44,7 +47,6 @@ public class Radio {
 
     public void turnUpVolume() {
         if (currentVolume == maxVolume) {
-            return;
         } else {
             currentVolume++;
         }
@@ -52,7 +54,6 @@ public class Radio {
 
     public void turnDownVolume() {
         if (currentVolume == minVolume) {
-            return;
         } else {
             currentVolume--;
         }
