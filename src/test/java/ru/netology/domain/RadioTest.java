@@ -21,21 +21,21 @@ class RadioTest {
 
     @Test
     void shouldSwitchStationByManuallyIfUnderMinimum() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(7,9);
         radio.switchStationByManually(-1);
-        assertEquals(7, radio.switchStationByManually(-1));
+        assertEquals(7, radio.getCurrentRadioStation());
     }
 
     @Test
     void shouldSwitchStationByManuallyIfOverMaximum() {
-        Radio radio = new Radio();
-        radio.switchStationByManually(10);
-        assertEquals(7, radio.switchStationByManually(10));
+        Radio radio = new Radio(7,9);
+        radio.switchStationByManually(56);
+        assertEquals(7, radio.getCurrentRadioStation());
     }
 
     @Test
     void shouldSwitchNextStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(7,9);
         radio.pressNextStation();
         assertEquals(8, radio.getCurrentRadioStation());
     }
@@ -58,16 +58,16 @@ class RadioTest {
 
     @Test
     void shouldPressPreviewStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(7,9);
         radio.pressPreviewStation();
         assertEquals(6, radio.getCurrentRadioStation());
     }
 
     @Test
     void shouldTurnUpVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(45,100,0);
         radio.turnUpVolume();
-        assertEquals(9, radio.getCurrentVolume());
+        assertEquals(46, radio.getCurrentVolume());
     }
 
     @Test
@@ -80,9 +80,9 @@ class RadioTest {
 
     @Test
     void shouldTurnDownVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(45,100,0);
         radio.turnDownVolume();
-        assertEquals(7, radio.getCurrentVolume());
+        assertEquals(44, radio.getCurrentVolume());
     }
 
     @Test

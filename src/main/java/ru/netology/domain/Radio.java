@@ -16,17 +16,23 @@ public class Radio {
     private int maxRadioStation = 9;
     private int minRadioStation = 0;
 
-    public Radio(int maxRadioStation, int currentRadioStation, int currentVolume) {
-        this.maxRadioStation = maxRadioStation;
+    public Radio(int currentRadioStation, int maxRadioStation) {
         this.currentRadioStation = currentRadioStation;
+        this.maxRadioStation = maxRadioStation;
+    }
+
+    public Radio(int currentVolume, int maxVolume, int minVolume) {
         this.currentVolume = currentVolume;
+        this.maxVolume = maxVolume;
+        this.minVolume = minVolume;
     }
 
     public int switchStationByManually(int inputStation) {
         if (inputStation <= 9 && inputStation >= 0) {
-            currentRadioStation = inputStation;
+            this.maxRadioStation = inputStation;
+            this.minRadioStation = inputStation;
         }
-        return currentRadioStation;
+        return inputStation;
     }
 
     public void pressNextStation() {
